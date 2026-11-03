@@ -1,0 +1,512 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap');
+
+:root {
+  font-family: "DM Sans", sans-serif;
+  color: #f8f2ff;
+  background: #060714;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  width: 100%;
+  min-height: 100%;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+button:focus-visible {
+  outline: 2px solid #efb9df;
+  outline-offset: 4px;
+}
+
+.experience {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  overflow: hidden;
+  isolation: isolate;
+  background:
+    radial-gradient(
+      ellipse at 50% 48%,
+      #19132b 0%,
+      #0b0b1b 43%,
+      #050610 100%
+    );
+}
+
+.particle-universe {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.particle-universe canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+}
+
+.ambient-glow {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      ellipse at 50% 48%,
+      transparent 5%,
+      rgba(4, 5, 15, 0.15) 46%,
+      rgba(4, 5, 15, 0.72) 100%
+    );
+}
+
+.topbar {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px 6%;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.27em;
+}
+
+.brand-symbol {
+  font-size: 27px;
+  color: #f1bbdd;
+}
+
+.topbar-note {
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  color: #a9a4be;
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.introduction {
+  position: absolute;
+  top: 35px;
+  left: 6%;
+  width: min(470px, 88%);
+}
+
+.eyebrow {
+  color: #e0abc9;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+}
+
+.introduction h1 {
+  margin: 18px 0 15px;
+  font-family: "Playfair Display", serif;
+  font-weight: 400;
+  font-size: clamp(35px, 4.2vw, 66px);
+  line-height: 1.12;
+  letter-spacing: -0.045em;
+}
+
+.introduction h1 em {
+  display: block;
+  font-weight: 400;
+  color: #f4b9d9;
+}
+
+.introduction-description {
+  max-width: 340px;
+  color: #9b98b4;
+  line-height: 1.9;
+  font-size: 13px;
+}
+
+.scene-caption {
+  position: absolute;
+  top: min(69vh, 630px);
+  left: 50%;
+  width: min(580px, 85%);
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.scene-number {
+  color: #bb9eb8;
+  font-size: 11px;
+  letter-spacing: 0.3em;
+}
+
+.scene-caption h2 {
+  margin: 12px 0 9px;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(23px, 3vw, 38px);
+  font-weight: 400;
+  color: #fff1f8;
+}
+
+.scene-caption p {
+  margin: 0 auto;
+  max-width: 460px;
+  font-size: 13px;
+  line-height: 1.75;
+  color: #aaa4bc;
+}
+
+.controls {
+  position: absolute;
+  z-index: 5;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0 6% 28px;
+}
+
+.scene-tabs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-bottom: 25px;
+}
+
+.scene-tab {
+  border: 1px solid rgba(240, 213, 241, 0.13);
+  border-radius: 30px;
+  padding: 11px 21px;
+  background: rgba(255, 255, 255, 0.035);
+  color: #a7a1bd;
+  font-size: 12px;
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease;
+  backdrop-filter: blur(12px);
+}
+
+.scene-tab:hover {
+  color: white;
+  border-color: #e9a9d3;
+  transform: translateY(-2px);
+}
+
+.scene-tab.active {
+  background: rgba(234, 150, 206, 0.17);
+  border-color: rgba(255, 192, 228, 0.65);
+  color: #ffe1ef;
+}
+
+.control-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.scene-arrows {
+  display: flex;
+  gap: 10px;
+}
+
+.circle-button {
+  display: grid;
+  place-items: center;
+  width: 43px;
+  height: 43px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  color: #f5dbed;
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  transition: background 0.25s ease;
+}
+
+.circle-button:hover {
+  background: rgba(236, 162, 216, 0.2);
+}
+
+.interaction-hint {
+  font-size: 11px;
+  color: #8c88a6;
+  letter-spacing: 0.04em;
+}
+
+.music-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.upload-button {
+  width: 43px;
+  height: 43px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.05);
+  color: #f0c2e2;
+}
+
+.music-button {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  min-width: 190px;
+  padding: 10px 15px;
+  border-radius: 40px;
+  background: rgba(25, 22, 45, 0.76);
+  color: #fff1f8;
+  border: 1px solid rgba(250, 216, 246, 0.19);
+  backdrop-filter: blur(16px);
+  text-align: left;
+}
+
+.music-icon {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #e7afd1;
+  color: #211024;
+  flex-shrink: 0;
+}
+
+.music-icon.playing {
+  box-shadow: 0 0 20px rgba(245, 158, 214, 0.4);
+  animation: pulseMusic 1.5s ease-in-out infinite;
+}
+
+.music-text {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+
+.music-text strong {
+  font-weight: 600;
+  font-size: 11px;
+}
+
+.music-text small {
+  max-width: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #a9a1bd;
+  font-size: 10px;
+}
+
+.audio-error {
+  margin: 12px 0 0;
+  color: #ffbfc9;
+  font-size: 12px;
+  text-align: center;
+}
+
+.welcome-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  text-align: center;
+  background: rgba(5, 6, 18, 0.94);
+  backdrop-filter: blur(18px);
+}
+
+.welcome-content {
+  width: min(640px, 100%);
+  animation: fadeUp 1s ease both;
+}
+
+.welcome-star {
+  display: block;
+  margin-bottom: 25px;
+  font-size: 54px;
+  color: #efb6d9;
+  text-shadow: 0 0 45px #e2a8ff;
+}
+
+.welcome-content > p {
+  color: #e9b8d9;
+  font-size: 11px;
+  letter-spacing: 0.3em;
+}
+
+.welcome-content h2 {
+  margin: 25px auto 35px;
+  font-family: "Playfair Display", serif;
+  font-weight: 400;
+  font-size: clamp(35px, 5vw, 65px);
+  line-height: 1.23;
+}
+
+.welcome-content h2 em {
+  color: #f0aed6;
+}
+
+.enter-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 20px;
+  padding: 16px 27px;
+  border: 1px solid rgba(255, 225, 246, 0.55);
+  border-radius: 40px;
+  background: rgba(239, 171, 214, 0.13);
+  color: #fff1fa;
+  font-size: 12px;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.enter-button:hover {
+  background: rgba(239, 171, 214, 0.25);
+  transform: translateY(-3px);
+}
+
+.welcome-content > small {
+  display: block;
+  margin-top: 22px;
+  color: #8f8aa4;
+  font-size: 11px;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulseMusic {
+  50% {
+    transform: scale(1.08);
+  }
+}
+
+@media (max-width: 700px) {
+  .topbar {
+    padding: 23px 6%;
+  }
+
+  .brand {
+    font-size: 9px;
+    letter-spacing: 0.15em;
+  }
+
+  .topbar-note {
+    display: none;
+  }
+
+  .introduction {
+    top: 15px;
+  }
+
+  .introduction h1 {
+    font-size: 38px;
+  }
+
+  .introduction-description {
+    max-width: 260px;
+    font-size: 11px;
+  }
+
+  .scene-caption {
+    top: 64vh;
+  }
+
+  .scene-caption p {
+    font-size: 11px;
+  }
+
+  .controls {
+    padding: 0 15px 20px;
+  }
+
+  .scene-tabs {
+    justify-content: flex-start;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    scrollbar-width: none;
+    padding-bottom: 5px;
+    margin-bottom: 17px;
+  }
+
+  .scene-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scene-tab {
+    flex-shrink: 0;
+    padding: 10px 16px;
+    font-size: 11px;
+  }
+
+  .interaction-hint {
+    display: none;
+  }
+
+  .music-button {
+    min-width: 145px;
+  }
+
+  .music-text small {
+    max-width: 95px;
+  }
+
+  .circle-button,
+  .upload-button {
+    width: 39px;
+    height: 39px;
+  }
+}
+
+@media (max-height: 650px) {
+  .introduction-description {
+    display: none;
+  }
+
+  .scene-caption {
+    top: 58vh;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
